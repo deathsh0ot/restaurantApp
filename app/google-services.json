@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1090661836336",
+    "project_id": "onemproject-d7804",
+    "storage_bucket": "onemproject-d7804.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090661836336:android:24b2f2d1ea8ccbac5aeff5",
+        "android_client_info": {
+          "package_name": "com.example.fraction2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090661836336-qdostqq1ef7ml0hg75i7od95n25mfskd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXipUCnq7hMFLyxXVLx0A2TALaTK1yBH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1090661836336-qdostqq1ef7ml0hg75i7od95n25mfskd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
