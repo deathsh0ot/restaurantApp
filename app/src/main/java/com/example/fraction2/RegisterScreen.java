@@ -1,19 +1,18 @@
 package com.example.fraction2;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class RegisterScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -21,6 +20,8 @@ public class RegisterScreen extends AppCompatActivity {
     private EditText passwordConfirm;
     private EditText email;
     private EditText username;
+    FirebaseDatabase database = FirebaseDatabase.getInstance("https://onemproject-d7804-default-rtdb.europe-west1.firebasedatabase.app");
+    DatabaseReference myRef = database.getReference("Users");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,8 @@ public class RegisterScreen extends AppCompatActivity {
         registerButton.setOnClickListener(view -> {
             checkErrors();
         });
+        Log.d("why","potato");
+        Log.d("why", String.valueOf(FirebaseDatabase.getInstance().getReference()));
     }
     private void checkErrors(){
         String newEmail = email.getText().toString().trim();
@@ -66,26 +69,19 @@ public class RegisterScreen extends AppCompatActivity {
             Toast.makeText(RegisterScreen.this,"Please make sure that the passwords match", Toast.LENGTH_SHORT).show();
             return;
         }
-        mAuth.createUserWithEmailAndPassword(newEmail,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    User user = new User(userName,newEmail);
-
-                    FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
-                                        Toast.makeText(RegisterScreen.this,"registration successful",Toast.LENGTH_LONG).show();
-                                    }
-                                    else{
-                                        Toast.makeText(RegisterScreen.this,"registration failed", Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
-                } else {
-                }
+        mAuth.createUserWithEmailAndPassword(newEmail,pass).addOnCompleteListener(this, task -> {
+            if (task.isSuccessful()) {
+                User user = new User(userName,newEmail);
+                myRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
+                        .addOnCompleteListener(task1 -> {
+                            if (task1.isSuccessful()){
+                                Toast.makeText(RegisterScreen.this,"registration successful",Toast.LENGTH_LONG).show();
+                            }
+                            else{
+                                Toast.makeText(RegisterScreen.this,"registration failed", Toast.LENGTH_LONG).show();
+                            }
+                        });
+            } else {
             }
         });
     }

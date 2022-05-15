@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -36,9 +37,6 @@ public class LogInScreen extends AppCompatActivity {
            if (email.getText().toString().equals("DeathSh0t")&& password.getText().toString().equals("Change123")){
                Toast.makeText(LogInScreen.this,"Sup", Toast.LENGTH_SHORT).show();
            }
-           else {
-               Toast.makeText(LogInScreen.this, "Woah there buddy", Toast.LENGTH_SHORT).show();
-           }
             verify();
         });
         register.setOnClickListener(view -> {
@@ -52,6 +50,21 @@ public class LogInScreen extends AppCompatActivity {
         String emailInput= email.getText().toString().trim();
         String passwordInput = password.getText().toString();
 
+        if(emailInput.isEmpty() && passwordInput.isEmpty() ){
+            Toast.makeText(LogInScreen.this,"Please fill out all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(emailInput.isEmpty() || (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches())){
+            email.setError("Please enter a valid email!");
+            email.requestFocus();
+            return;
+        }
+        if (passwordInput.isEmpty() || passwordInput.length()<6){
+            password.setError("Password must contain 6 characters or more!");
+            password.requestFocus();
+            return;
+
+        }
         mAuth.signInWithEmailAndPassword(emailInput, passwordInput).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
