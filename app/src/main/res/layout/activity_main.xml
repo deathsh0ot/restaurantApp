@@ -6,44 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/logOutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#68C5B2"
-        android:gravity="left"
-        android:text="Log out :D"
 
-        />
 
-    <EditText
-        android:id="@+id/editTextNumberSigned"
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNav"
+        android:layout_marginBottom="0dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/my_nav" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logOutBtn"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="89dp"
-        android:autofillHints="number"
-        android:ems="10"
-        android:hint="donner un nombre positive"
-        android:inputType="numberSigned"
-        android:textAlignment="center" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNumberSigned"
-        android:layout_marginTop="40dp"
-        android:text="Calculer" />
-
-    <TextView
-        android:layout_marginTop="20dp"
-        android:textSize="20dp"
-        android:id="@+id/textView"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button"
-        android:text="resultat!" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:background="@color/backgroundOverlay"
+        android:layout_marginBottom="1dp"
+        app:menu="@menu/bottom_nav" />
 </RelativeLayout>

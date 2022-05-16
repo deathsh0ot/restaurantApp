@@ -1,5 +1,6 @@
 package com.example.fraction2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import  androidx.appcompat.app.AppCompatActivity;
 
@@ -8,74 +9,51 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText editText;
-
-    TextView textView;
-
-    Button button;
-
-    Button logOUTBtn;
+    BottomNavigationView bottomNavigationView;
+    HomeFragment homeFragment = new HomeFragment();
+    ProfileFragment profileFragment = new ProfileFragment();
+    ContactsFragment contactsFragment = new ContactsFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bottomNavigationView = findViewById(R.id.bottomNav);
 
-        editText = (EditText) findViewById(R.id.editTextNumberSigned);
-
-        textView = (TextView) findViewById(R.id.textView);
-
-        button = (Button) findViewById(R.id.button);
-
-        logOUTBtn = (Button) findViewById(R.id.logOutBtn);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                String input = editText.getText().toString();
-                if(TextUtils.isEmpty(input)){
-                    Toast.makeText(MainActivity.this,"donner un numero :)",Toast.LENGTH_LONG).show();
-
+            public boolean onNavigationItemSelected( MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.homeItem:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+                        return true;
+                    case R.id.profileItem:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();
+                        return true;
+                    case R.id.contactsItem:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, contactsFragment).commit();
+                        return true;
                 }
-                else if(Integer.parseInt(input) <0){
-                    Toast.makeText(MainActivity.this,"donner un numero positif :)",Toast.LENGTH_LONG).show();
-
-                }
-                else{
-                    int fac = Integer.parseInt(input);
-                    textView.setText(""+ String.valueOf(factorielle(fac)));
-                }
-
+                return  false;
             }
         });
 
-        logOUTBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity( new Intent(MainActivity.this, LogInScreen.class));
-            }
-        });
     }
-    private double factorielle (double fac){
 
-       if(fac<2){
-            return 1;
-        }
-        else{
-            return fac * factorielle(fac-1);
-        }
-    }
 }

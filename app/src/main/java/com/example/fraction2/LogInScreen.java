@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogInScreen extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -46,6 +48,7 @@ public class LogInScreen extends AppCompatActivity {
         });
 
     }
+
     private void verify(){
         String emailInput= email.getText().toString().trim();
         String passwordInput = password.getText().toString();
@@ -65,11 +68,23 @@ public class LogInScreen extends AppCompatActivity {
             return;
 
         }
+        FirebaseAuth.AuthStateListener mAuthListener;
+        mAuthListener = new FirebaseAuth.AuthStateListener(){
+            @Override
+            public  void  onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth){
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(user!=null){
+                    Intent intent = new Intent(LogInScreen.this, UserProfile.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        };
         mAuth.signInWithEmailAndPassword(emailInput, passwordInput).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Intent intent1 = new Intent(LogInScreen.this, MainActivity.class);
+                    Intent intent1 = new Intent(LogInScreen.this, MenuList.class);
                     startActivity(intent1);
                     finish();
                 }

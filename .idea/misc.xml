@@ -10,10 +10,26 @@
         <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.134" />
         <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/drawable/password_icon.xml" value="0.134" />
         <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/drawable/user_icon.xml" value="0.134" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/activity_home_screen.xml" value="0.25" />
         <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/activity_log_in_screen.xml" value="0.5" />
-        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/activity_menu_list.xml" value="0.1609375" />
         <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/activity_register_screen.xml" value="0.16041666666666668" />
         <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/activity_splash_screen.xml" value="0.1802536231884058" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/activity_user_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/app_bar_home_screen.xml" value="0.25" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/content_home_screen.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/fragment_contacts.xml" value="0.1609375" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/fragment_gallery.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/fragment_profile.xml" value="0.1609375" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/fragment_slideshow.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/item.xml" value="0.1609375" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/menu_item.xml" value="0.22" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/layout/nav_header_home_screen.xml" value="0.25" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/menu/activity_main_drawer.xml" value="0.26510416666666664" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/menu/bottom_nav.xml" value="0.2" />
+        <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/menu/home_screen.xml" value="0.26510416666666664" />
         <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/mipmap-anydpi-v26/email_icon.xml" value="0.1645" />
         <entry key="..\:/Users/Ala Hamadi/fraction2/app/src/main/res/mipmap-anydpi-v26/email_icon_round.xml" value="0.118" />
       </map>
