@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg1"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Update menu item"
+        android:background="@color/colorPrimary"
+        android:id="@+id/updatePanel"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:textColor="#fff"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/updatePanel"
+        android:hint="Image URL"
+        android:textColor="@color/black"
+        android:id="@+id/uURL"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uURL"
+        android:hint="Name"
+        android:textColor="@color/black"
+        android:background="#28ffffff"
+        android:id="@+id/uName"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uName"
+        android:hint="price"
+        android:textColor="@color/black"
+        android:background="#28ffffff"
+        android:id="@+id/uPrice"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uPrice"
+        android:layout_centerInParent="true"
+        android:text="Update"
+        android:id="@+id/submit"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        />
+</RelativeLayout>

@@ -32,6 +32,7 @@ public class LogInScreen extends AppCompatActivity {
          email = findViewById(R.id.email);
          password = findViewById(R.id.password);
         TextView register = findViewById(R.id.registerText);
+        TextView forgotPass = findViewById(R.id.forgot);
         Button loginBtn =  findViewById(R.id.loginButton);
 
         //adminLogin (Me :) )
@@ -44,6 +45,10 @@ public class LogInScreen extends AppCompatActivity {
         register.setOnClickListener(view -> {
             //creating intent
             Intent intent = new Intent(LogInScreen.this, RegisterScreen.class);
+            startActivity(intent);
+        });
+        forgotPass.setOnClickListener(view -> {
+            Intent intent = new Intent(LogInScreen.this,ResetPassword.class);
             startActivity(intent);
         });
 

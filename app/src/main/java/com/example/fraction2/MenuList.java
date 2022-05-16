@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +24,7 @@ public class MenuList extends AppCompatActivity {
     DatabaseReference database;
     Adapter myAdapter;
     ArrayList<Menu> list;
+    FloatingActionButton fBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +38,13 @@ public class MenuList extends AppCompatActivity {
         list = new ArrayList<>();
         myAdapter = new Adapter(this,list);
         recyclerView.setAdapter(myAdapter);
-
+        fBtn= (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        fBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AddMenuItem.class));
+            }
+        });
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

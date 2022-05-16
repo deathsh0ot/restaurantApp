@@ -14,6 +14,21 @@
                 android:layout_width="match_parent"
 
                 android:layout_height="match_parent"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:id="@+id/deleteIcon"
+                android:src="@drawable/ic_baseline_delete_forever_24"
+                android:layout_alignRight="@id/itemImage"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/deleteIcon"
+                android:layout_alignRight="@id/itemImage"
+                android:src="@drawable/ic_baseline_edit_24"
+                android:id="@+id/editIcon"
+
+                />
             <TextView
                 android:id="@+id/itemName"
                 android:text="name of menu item"
